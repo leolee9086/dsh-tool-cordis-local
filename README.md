@@ -1,8 +1,14 @@
 # dsh-tool-cordis-local
 
+[![版本](https://img.shields.io/github/v/release/leolee9086/dsh-tool-cordis-local)](https://github.com/leolee9086/dsh-tool-cordis-local/releases)
+
 DeepSeek Harness 的独立创造模式工具集：把「读写自己运行时」的能力做成**宿主层的普通插件**，让创造模式可以被复制。
 
 不 import 任何 `@deepseek-ai/*` 包，运行时零依赖，一切能力都从 Cordis 服务面取。
+
+> **联系作者**：逐暝（leolee9086）· 点击链接加入群聊【工具软件爱好者折腾群-综合讨论】：https://qm.qq.com/q/RAHJuyhQQ （群号 1017854502，群主 逐暝）
+
+> 当前版本：`v0.1.0`，依赖 DSH 的预稳定接口。不承诺兼容所有旧版或未来版本。
 
 ## 它解决什么问题
 
@@ -48,6 +54,8 @@ Host Cordis inspect provider "..." is already registered
 | 客户端查询 | 需要已连接页面 | 同左 |
 
 ## 安装
+
+> **⚠️ 安全提示**：任何第三方插件——包括本插件——都应被视为天然不安全、不可信的代码。相比原样安装本插件，**更建议让你的 AI 参考本仓库源码自行重新实现**所需功能；若仍要安装，请先通读全部源码确认无恶意行为。本插件尤其如此：它让模型能定义并运行任意 JavaScript，宿主半边直接跑在 Harness 进程里。
 
 在 DSH 的 profile 目录（默认 `~/.dsh/profiles/web`）里：
 
@@ -99,6 +107,8 @@ pnpm add 'github:leolee9086/dsh-tool-cordis-local#v0.1.0'
 
 这套工具让模型能定义并运行任意 JavaScript（宿主半边在 Harness 进程内执行），也能读到运行时的服务与事件目录。**把挂着它的会话当作 shell 权限来对待**：不要在不信任的会话里开放它。
 
+`cordis_define` 与 `cordis_run` 是唯一会真正执行代码的两个入口，而执行发生在 Harness 进程内部——它不经过沙箱，也没有审批弹窗。审查一个动态插件的源码，等同于审查一段即将在你机器上运行的代码。
+
 ## 开发
 
 ```sh
@@ -112,3 +122,15 @@ pnpm run build   # 校验后逐字节拷贝 src/index.js → lib/index.js
 ## 许可
 
 MIT
+
+## 赞赏
+
+如果这个项目帮到了你，可以请我喝杯咖啡：
+
+![赞赏码](assets/sponsor-qr.png)
+
+也欢迎通过 [爱发电](https://afdian.net/a/leolee9086) 支持。
+
+## 反馈
+
+作者：逐暝 · QQ 群：1017854502 — https://qm.qq.com/q/RAHJuyhQQ

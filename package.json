@@ -1,7 +1,6 @@
 {
   "name": "dsh-tool-cordis-local",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "description": "DeepSeek Harness 的独立创造模式工具集：把运行时检查与动态插件生命周期做成宿主层普通插件，绕开官方 @deepseek-ai/dsh-tool-cordis 的进程级注册表占位，使创造模式预设可以被复制",
   "author": "leolee9086",
