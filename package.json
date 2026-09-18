@@ -1,0 +1,28 @@
+{
+  "name": "dsh-tool-cordis-local",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "DeepSeek Harness 的独立创造模式工具集：把运行时检查与动态插件生命周期做成宿主层普通插件，绕开官方 @deepseek-ai/dsh-tool-cordis 的进程级注册表占位，使创造模式预设可以被复制",
+  "author": "leolee9086",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/leolee9086/dsh-tool-cordis-local.git" },
+  "homepage": "https://github.com/leolee9086/dsh-tool-cordis-local#readme",
+  "bugs": { "url": "https://github.com/leolee9086/dsh-tool-cordis-local/issues" },
+  "keywords": ["deepseek-harness", "cordis", "dsh-plugin", "dynamic-plugin", "self-modification"],
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": ["src", "lib", "cordis.patch.yml", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check src/index.js",
+    "test": "node --test test/smoke.test.mjs",
+    "prepack": "pnpm run check && pnpm run test && pnpm run build"
+  },
+  "engines": { "node": ">=22.19.0" },
+  "dependencies": {},
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+}

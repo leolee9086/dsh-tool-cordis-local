@@ -1,0 +1,7 @@
+# 宿主层挂载：这是一组普通工具，挂一次对所有会话生效，任何预设都不需要改。
+#
+# 这里的 name 必须等于 package.json 的 name（写的是包名，不是目录名），
+# 否则 bundle 挂载匹配不上，装了等于没装。
+- insert:
+    - id: tool-cordis-local
+      name: dsh-tool-cordis-local
